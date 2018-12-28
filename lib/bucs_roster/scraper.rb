@@ -6,12 +6,11 @@ class Scraper
     doc.css(".nfl-o-roster__player-name").each do |player|
       player_name = player.css("a").text
       player_URL = "https://www.buccaneers.com" + player.css("a")[0]["href"]
-      binding.pry
+   #   binding.pry
       Player.new(player_name, player_URL)
    # binding.pry
     end
-    binding.pry
-    Player.all
+   # binding.pry
   end
   
   def scrape_player

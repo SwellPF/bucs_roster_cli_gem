@@ -14,4 +14,11 @@ class Scraper
     Player.all
   end
   
+  def scrape_player
+    html = open(player.player_URL)
+    doc = Nokogiri::HTML(html)
+    doc.css(".nfl-t-person-tile__details").collect do |stat|
+    end
+  end
+  
 end

@@ -10,11 +10,11 @@ class CLI
       puts "#{index}. #{player.player_name}"
     end
       puts "Enter the number of the player you would like to know more about: (1-#{Player.all.count})"
-      user_input = gets.strip.to_i
+      user_input = gets.strip.to_i-1
      # binding.pry
       if user_input.between?(1, Player.all.count)
         puts "number in range"
-        #player.scrape_player 
+        Scraper.scrape_player(user_input) 
         else menu
       end
   end

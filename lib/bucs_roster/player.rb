@@ -1,5 +1,5 @@
 class Player
-  attr_accessor :player_name, :position, :jersey_number, :height, :weight, :age, :experience, :college, :player_URL
+  attr_accessor :player_name, :position, :jersey_number, :height, :weight, :age, :experience, :college, :player_URL, :bio
   @@all = []
   
   def initialize(player_name, player_URL)

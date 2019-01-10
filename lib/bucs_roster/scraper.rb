@@ -13,11 +13,22 @@ class Scraper
    # binding.pry
   end
   
-  def scrape_player
-    html = open(player.player_URL)
+  def self.scrape_player(index)
+   # binding.pry 
+    html = open(Player.all[index].player_URL)
     doc = Nokogiri::HTML(html)
-    doc.css(".nfl-t-person-tile__details").collect do |stat|
+   # binding.pry
+    experience = doc.search("div.nfl-t-person-tile__details p")[0].text.gsub("Experience: ","")
+    height = doc.search("div.nfl-t-person-tile__details p")[1].text.gsub("Height: ","")
+    age = doc.search("div.nfl-t-person-tile__details p")[2].text.gsub("Age: ","")
+    weight = doc.search("div.nfl-t-person-tile__details p")[3].text.gsub("Weight: ","")
+    college = doc.search("div.nfl-t-person-tile__details p")[4].text.gsub("College: ","")
+    bio = ""
+    doc.css("div.nfl-o-biography__text p")[2..-1].each do |bio_fact|
+      bio = bio + bio_fact + "\n"
     end
+    puts bio
+    binding.pry
   end
   
 end

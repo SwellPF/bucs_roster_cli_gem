@@ -4,31 +4,40 @@ class Scraper
     html = open("https://www.buccaneers.com/team/players-roster/")
     doc = Nokogiri::HTML(html)
     doc.css(".nfl-o-roster__player-name").each do |player|
-      player_name = player.css("a").text
+      name = player.css("a").text
       player_URL = "https://www.buccaneers.com" + player.css("a")[0]["href"]
-   #   binding.pry
-      Player.new(player_name, player_URL)
-   # binding.pry
-    end
-   # binding.pry
+      Player.new(name, player_URL)
+    # binding.pry
   end
+    end
   
   def self.scrape_player(index)
    # binding.pry 
-    html = open(Player.all[index].player_URL)
+    player = Player.all[index]
+    html = open(player.player_URL)
     doc = Nokogiri::HTML(html)
    # binding.pry
-    experience = doc.search("div.nfl-t-person-tile__details p")[0].text.gsub("Experience: ","")
-    height = doc.search("div.nfl-t-person-tile__details p")[1].text.gsub("Height: ","")
-    age = doc.search("div.nfl-t-person-tile__details p")[2].text.gsub("Age: ","")
-    weight = doc.search("div.nfl-t-person-tile__details p")[3].text.gsub("Weight: ","")
-    college = doc.search("div.nfl-t-person-tile__details p")[4].text.gsub("College: ","")
-    bio = ""
-    doc.css("div.nfl-o-biography__text p")[2..-1].each do |bio_fact|
-      bio = bio + bio_fact + "\n"
+    player.experience = doc.search("div.nfl-t-person-tile__details p")[0].text.gsub("Experience: ","")
+    player.height = doc.search("div.nfl-t-person-tile__details p")[1].text.gsub("Height: ","")
+    player.age = doc.search("div.nfl-t-person-tile__details p")[2].text.gsub("Age: ","")
+    player.weight = doc.search("div.nfl-t-person-tile__details p")[3].text.gsub("Weight: ","")
+    player.college = doc.search("div.nfl-t-person-tile__details p")[4].text.gsub("College: ","")
+    player.position = doc.search("h3.d3-o-media-object__primary-subtitle").text.strip
+    player.jersey_number = doc.search("h3.d3-o-media-object__secondary-subtitle").text.strip
+    player.bio = ""
+    bio = doc.css("div.nfl-o-biography__text p")[2..-1]
+    #binding.pry
+    if bio != nil
+      
+      bio.each do |bio_fact|
+      player.bio = player.bio + bio_fact + "\n"
+      end
+    else 
+      player.bio = "No player bio available."
+     # binding.pry
     end
-    puts bio
-    binding.pry
+   # puts player.bio
+   # binding.pry
   end
   
 end

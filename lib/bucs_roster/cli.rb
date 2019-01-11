@@ -7,7 +7,7 @@ class CLI
   
   def menu
     Player.all.each.with_index(1) do |player, index|
-      puts "#{index}. #{player.player_name}"
+      puts "#{index}. #{player.name}"
     end
       puts "Enter the number of the player you would like to know more about: (1-#{Player.all.count})"
       user_input = gets.strip.to_i-1
@@ -15,6 +15,7 @@ class CLI
       if user_input.between?(1, Player.all.count)
         puts "number in range"
         Scraper.scrape_player(user_input) 
+        Player.show_player_info(user_input)
         else menu
       end
   end

@@ -29,8 +29,8 @@ class CLI
   def ask_again
     puts "Would you like to explore another player? (Y/N)"
     input = gets.strip.downcase
-    #binding.pry
-    if input == "y" 
+   # binding.pry
+    if input[0] == "y" 
       menu
     else 
       goodbye

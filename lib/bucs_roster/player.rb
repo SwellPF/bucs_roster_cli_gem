@@ -29,6 +29,6 @@ class Player
     puts "Age: #{player.age}"
     puts "College: #{player.college}"
     puts "Experience: #{player.experience}"
-    puts "Biography: \n#{player.bio}"
+    puts "Biography: \n#{player.bio}\n\n"
   end
 end

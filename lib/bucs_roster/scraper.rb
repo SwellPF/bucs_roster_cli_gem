@@ -25,15 +25,16 @@ class Scraper
     player.position = doc.search("h3.d3-o-media-object__primary-subtitle").text.strip
     player.jersey_number = doc.search("h3.d3-o-media-object__secondary-subtitle").text.strip
     player.bio = ""
-    bio = doc.css("div.nfl-o-biography__text p")[2..-1]
+    bio = doc.search("div.nfl-c-body-part.nfl-c-body-part--text p")[2..-1]
     #binding.pry
     if bio != nil
       
       bio.each do |bio_fact|
-      player.bio = player.bio + bio_fact + "\n"
+      player.bio = player.bio + bio_fact.text + "\n\n"
       end
     else 
       player.bio = "No player bio available."
+
      # binding.pry
     end
    # puts player.bio

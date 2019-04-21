@@ -6,21 +6,32 @@ class CLI
   end
   
   def menu
-    Player.all.each.with_index(1) do |player, index|
+    @pointer ||= 0
+    #binding.pry
+    puts @pointer
+    Player.all[@pointer,40].each.with_index(@pointer+1) do |player, index|
       puts "#{index}. #{player.name}"
     end
-      puts "Enter the number of the player you would like to know more about: (1-#{Player.all.count}) or type 'exit' to end"
-      user_input = gets.strip.to_i
-    # binding.pry
-      if user_input == 0
+      puts "Enter the number of the player you would like to know more about, '+' for next group, '-' for previous group or type 'exit' to end."
+      user_input = gets.strip
+    #binding.pry
+    case 
+    when user_input == "exit"
         goodbye
-      end
-      if user_input.between?(1, Player.all.count)
+    when user_input == "+"
+        @pointer += 40
+        menu
+    when user_input == "-"
+        @pointer -= 40
+        menu
+    end    
+    user_input = user_input.to_i
+    if user_input.between?(1, Player.all.count)
         user_input -=1
         Scraper.scrape_player(user_input) 
         Player.show_player_info(user_input)
         ask_again
-      else 
+    else 
         puts "Invalid entry.  Please try again."
         menu
       end

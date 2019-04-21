@@ -8,8 +8,7 @@ class CLI
   def menu
     @pointer ||= 0
     #binding.pry
-    puts @pointer
-    Player.all[@pointer,40].each.with_index(@pointer+1) do |player, index|
+    Player.all[@pointer,30].each.with_index(@pointer+1) do |player, index|
       puts "#{index}. #{player.name}"
     end
       puts "Enter the number of the player you would like to know more about, '+' for next group, '-' for previous group or type 'exit' to end."
@@ -19,12 +18,12 @@ class CLI
     when user_input == "exit"
         goodbye
     when user_input == "+"
-        @pointer += 40
+        @pointer += 30
       #  binding.pry
-        @pointer = (Player.all.count)-40 if @pointer > Player.all.count
+        @pointer = (Player.all.count)-30 if @pointer > Player.all.count
         menu
     when user_input == "-"
-        @pointer -= 40
+        @pointer -= 30
      #   binding.pry
         @pointer = 0 if @pointer < 0
         menu

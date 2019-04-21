@@ -20,9 +20,13 @@ class CLI
         goodbye
     when user_input == "+"
         @pointer += 40
+      #  binding.pry
+        @pointer = (Player.all.count)-40 if @pointer > Player.all.count
         menu
     when user_input == "-"
         @pointer -= 40
+     #   binding.pry
+        @pointer = 0 if @pointer < 0
         menu
     end    
     user_input = user_input.to_i

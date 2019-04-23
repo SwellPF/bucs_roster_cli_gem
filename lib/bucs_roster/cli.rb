@@ -7,24 +7,20 @@ class CLI
   
   def menu
     @pointer ||= 0
-    #binding.pry
     Player.all[@pointer,30].each.with_index(@pointer+1) do |player, index|
       puts "#{index}. #{player.name}"
     end
       puts "Enter the number of the player you would like to know more about, '+' for next group, '-' for previous group or type 'exit' to end."
       user_input = gets.strip
-    #binding.pry
     case 
-    when user_input == "exit"
+      when "exit"
         goodbye
-    when user_input == "+"
+      when "+"
         @pointer += 30
-      #  binding.pry
         @pointer = (Player.all.count)-30 if @pointer > Player.all.count
         menu
-    when user_input == "-"
+      when "-"
         @pointer -= 30
-     #   binding.pry
         @pointer = 0 if @pointer < 0
         menu
     end    
@@ -43,7 +39,6 @@ class CLI
   def ask_again
     puts "Would you like to explore another player? (Y/N)"
     input = gets.strip.downcase
-   # binding.pry
     if input[0] == "y" 
       menu
     else 

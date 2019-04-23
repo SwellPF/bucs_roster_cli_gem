@@ -12,7 +12,7 @@ class CLI
     end
       puts "Enter the number of the player you would like to know more about, '+' for next group, '-' for previous group or type 'exit' to end."
       user_input = gets.strip
-    case 
+    case user_input
       when "exit"
         goodbye
       when "+"

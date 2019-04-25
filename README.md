@@ -1,8 +1,8 @@
 # This project was authored by Paul Fell-Cinoman in April 2019.
 
-# BucsRosterCliGem
+# Bucs Roster CLI Gem
 
-This Ruby Gem provides a CLI to view details of the team roster of the Tampa Bay Buccaneers NFL football team.
+This Ruby Gem provides a CLI to view details of the team roster of the Tampa Bay Buccaneers NFL football team through information on the team's website.
 
 ## Installation
 

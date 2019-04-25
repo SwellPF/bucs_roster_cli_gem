@@ -4,13 +4,9 @@
 
 This Ruby Gem provides a CLI to view details of the team roster of the Tampa Bay Buccaneers NFL football team.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bucs_roster_cli_gem`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
-    $ gem install bucs_roster_cli_gem
+    $ gem install bucs_roster
 
 ## Usage
 

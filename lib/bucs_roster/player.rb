@@ -5,13 +5,6 @@ class Player
   def initialize(name, player_URL)
     @name = name
     @player_URL = player_URL
-#   @position = position
-#   @jersey_number = jersey_number
-#   @height = height
-#   @weight = weight
-#   @age = age
-#   @experience = experience
-#   @college = college
     @@all << self
   end
 

@@ -4,7 +4,7 @@ class CLI
     Scraper.new.scrape_index
     menu
   end
-  
+
   def menu
     @pointer ||= 0
     Player.all[@pointer,30].each.with_index(@pointer+1) do |player, index|
@@ -23,14 +23,14 @@ class CLI
         @pointer -= 30
         @pointer = 0 if @pointer < 0
         menu
-    end    
+      end
     user_input = user_input.to_i
     if user_input.between?(1, Player.all.count)
         user_input -=1
-        Scraper.scrape_player(user_input) 
+        Scraper.scrape_player(user_input)
         Player.show_player_info(user_input)
         ask_again
-    else 
+    else
         puts "Invalid entry.  Please try again."
         menu
       end
@@ -39,9 +39,9 @@ class CLI
   def ask_again
     puts "Would you like to explore another player? (Y/N)"
     input = gets.strip.downcase
-    if input[0] == "y" 
+    if input[0] == "y"
       menu
-    else 
+    else
       goodbye
     end
   end
@@ -50,5 +50,5 @@ class CLI
     puts "Thanks for checking out the Tampa Bay Bucs!"
     exit
   end
-  
+
 end

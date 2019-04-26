@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.description   = "Provides details about players on the active team roster"
   spec.homepage      = "http://rubygems.org/gems/bucs-roster"
   spec.license       = "MIT"
-  spec.files         = ["lib/bucs_roster.rb", "lib/bucs_roster/cli.rb", "lib/bucs_roster/player.rb", "lib/bucs_roster/scraper.rb"]
+  spec.files         = ["lib/bucs_roster.rb", "lib/bucs_roster/cli.rb", "lib/bucs_roster/player.rb", "lib/bucs_roster/scraper.rb", "config/environment.rb"]
   spec.executables << 'bucs_roster'
 
   spec.add_development_dependency "bundler", "~> 1.17"

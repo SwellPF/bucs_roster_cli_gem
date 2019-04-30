@@ -2,4 +2,4 @@
 
 require_relative '../lib/bucs_roster'
 
-CLI.new.start
+BucsRoster::CLI.new.start

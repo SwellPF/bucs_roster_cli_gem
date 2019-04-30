@@ -1,4 +1,4 @@
-class CLI
+class BucsRoster::CLI
   def start
     puts "Here are your Tampa Bay Buccaneers!"
     Scraper.new.scrape_index

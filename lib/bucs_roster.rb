@@ -1,2 +1,2 @@
 require_relative '../config/environment'
-require "bucs_roster/version"
+require_relative "./bucs_roster/version"

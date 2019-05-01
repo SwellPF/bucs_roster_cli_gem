@@ -12,7 +12,7 @@ This Ruby Gem provides a CLI to view details of the team roster of the Tampa Bay
 
 Type the below and follow the on screen prompts.
 
-    $ bucs_roster
+    $ bucs-roster
 
 ## Development
 

@@ -4,7 +4,7 @@ lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = "bucs-roster"
+  spec.name          = "bucs_roster"
   spec.version       = BucsRoster::VERSION
   spec.authors       = ["'Paul Fell-Cinoman'"]
   spec.email         = ["'swellpf@gmail.com'"]

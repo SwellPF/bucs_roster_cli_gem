@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bucs_roster (0.2.0)
+    bucs_roster (0.2.1)
 
 GEM
   remote: https://rubygems.org/

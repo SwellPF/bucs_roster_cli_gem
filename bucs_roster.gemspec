@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://rubygems.org/gems/bucs-roster"
   spec.license       = "MIT"
   spec.files         = ["lib/bucs_roster.rb", "lib/bucs_roster/cli.rb", "lib/bucs_roster/player.rb", "lib/bucs_roster/scraper.rb", "config/environment.rb"]
-  s.executables << 'bucs-roster'
+  spec.executables << 'bucs-roster'
 
   spec.add_development_dependency "bundler", "~> 2.0.1"
   spec.add_development_dependency "rake", "~> 10.0"

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bucs_roster (0.2.1)
+    bucs-roster (0.2.2)
 
 GEM
   remote: https://rubygems.org/
@@ -20,7 +20,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bucs_roster!
+  bucs-roster!
   bundler (~> 2.0.1)
   nokogiri
   pry

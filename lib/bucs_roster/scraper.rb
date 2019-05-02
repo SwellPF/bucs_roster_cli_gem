@@ -12,7 +12,7 @@ class Scraper
 
   def self.scrape_player(index)
     player = Player.all[index]
-    puts "SCRAPING FOR #{player.name} *******"
+  #  puts "SCRAPING FOR #{player.name} *******"
     html = open(player.player_URL)
     doc = Nokogiri::HTML(html)
     player.experience = doc.search("div.nfl-t-person-tile__details p")[0].text.gsub("Experience: ","")

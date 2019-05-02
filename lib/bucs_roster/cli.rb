@@ -53,7 +53,6 @@ class BucsRoster::CLI
     puts "Biography: \n#{player.bio}\n\n"
   end
 
-
   def ask_again
     puts "Would you like to explore another player? (Y/N)"
     input = gets.strip.downcase

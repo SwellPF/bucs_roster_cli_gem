@@ -4,13 +4,13 @@ class BucsRoster::CLI
   def start
     self
     puts "Here are your Tampa Bay Buccaneers!"
-    Scraper.new.scrape_index
+    BucsRoster::Scraper.new.scrape_index
     menu
   end
 
   def menu
     @pointer ||= 0
-    Player.all[@pointer,30].each.with_index(@pointer+1) do |player, index|
+    BucsRoster::Player.all[@pointer,30].each.with_index(@pointer+1) do |player, index|
       puts "#{index}. #{player.name}"
     end
       puts "Enter the number of the player you would like to know more about, '+' for next group, '-' for previous group or type 'exit' to end."
@@ -28,10 +28,10 @@ class BucsRoster::CLI
         menu
       end
     user_input = user_input.to_i
-    if user_input.between?(1, Player.all.count)
+    if user_input.between?(1, BucsRoster::Player.all.count)
         user_input -=1
 
-        Scraper.scrape_player(user_input) if !Player.all[user_input].college
+        BucsRoster::Scraper.scrape_player(user_input) if !BucsRoster::Player.all[user_input].college
         show_player_info(user_input)
         ask_again
     else
@@ -41,7 +41,7 @@ class BucsRoster::CLI
   end
 
   def show_player_info(index)
-    player = Player.all[index]
+    player = BucsRoster::Player.all[index]
     puts " ---- Tampa Bay Buccaneers Player Profile ----"
     puts "            #{player.name.upcase} | #{player.jersey_number} | #{player.position}"
     puts ""

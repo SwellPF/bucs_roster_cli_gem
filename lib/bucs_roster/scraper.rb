@@ -1,4 +1,4 @@
-class Scraper
+class BucsRoster::Scraper
 
   def scrape_index
     html = open("https://www.buccaneers.com/team/players-roster/")
@@ -6,12 +6,12 @@ class Scraper
     doc.css(".nfl-o-roster__player-name").each do |player|
       name = player.css("a").text
       player_URL = "https://www.buccaneers.com" + player.css("a")[0]["href"]
-      Player.new(name, player_URL)
+      BucsRoster::Player.new(name, player_URL)
     end
   end
 
   def self.scrape_player(index)
-    player = Player.all[index]
+    player = BucsRoster::Player.all[index]
   #  puts "SCRAPING FOR #{player.name} *******"
     html = open(player.player_URL)
     doc = Nokogiri::HTML(html)

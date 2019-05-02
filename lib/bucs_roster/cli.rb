@@ -20,7 +20,7 @@ class BucsRoster::CLI
         goodbye
       when "+"
         @pointer += 30
-        @pointer = (Player.all.count)-30 if @pointer > Player.all.count
+        @pointer = (BucsRoster::Player.all.count)-30 if @pointer > BucsRoster::Player.all.count
         menu
       when "-"
         @pointer -= 30

@@ -1,6 +1,6 @@
 require "nokogiri"
 require "open-uri"
-#require "pry"
+require "pry"
 
 
 require_relative '../lib/bucs_roster/version'

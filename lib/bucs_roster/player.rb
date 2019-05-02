@@ -12,16 +12,5 @@ class Player
     @@all
   end
 
-  def self.show_player_info(index)
-    player = self.all[index]
-    puts " ---- Tampa Bay Buccaneers Player Profile ----"
-    puts "            #{player.name.upcase} | #{player.jersey_number} | #{player.position}"
-    puts ""
-    puts "Height: #{player.height}"
-    puts "Weight: #{player.weight}"
-    puts "Age: #{player.age}"
-    puts "College: #{player.college}"
-    puts "Experience: #{player.experience}"
-    puts "Biography: \n#{player.bio}\n\n"
-  end
+  
 end

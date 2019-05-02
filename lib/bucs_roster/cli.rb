@@ -1,5 +1,8 @@
 class BucsRoster::CLI
+
+
   def start
+    self
     puts "Here are your Tampa Bay Buccaneers!"
     Scraper.new.scrape_index
     menu
@@ -27,14 +30,29 @@ class BucsRoster::CLI
     user_input = user_input.to_i
     if user_input.between?(1, Player.all.count)
         user_input -=1
-        Scraper.scrape_player(user_input)
-        Player.show_player_info(user_input)
+
+        Scraper.scrape_player(user_input) if !Player.all[user_input].college
+        show_player_info(user_input)
         ask_again
     else
         puts "Invalid entry.  Please try again."
         menu
       end
   end
+
+  def show_player_info(index)
+    player = Player.all[index]
+    puts " ---- Tampa Bay Buccaneers Player Profile ----"
+    puts "            #{player.name.upcase} | #{player.jersey_number} | #{player.position}"
+    puts ""
+    puts "Height: #{player.height}"
+    puts "Weight: #{player.weight}"
+    puts "Age: #{player.age}"
+    puts "College: #{player.college}"
+    puts "Experience: #{player.experience}"
+    puts "Biography: \n#{player.bio}\n\n"
+  end
+
 
   def ask_again
     puts "Would you like to explore another player? (Y/N)"
